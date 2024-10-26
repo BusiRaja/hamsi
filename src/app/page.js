@@ -52,16 +52,15 @@ const Home = () => {
   }, [time]);
 
   return (
-    <div className="grid h-screen grid-cols-2">
-      <div className="h-[100vh]">
+    <div className="grid h-screen grid-cols-1 lg:grid-cols-2">
+      <div className="h-[225px] sm:h-[300px] md:h-[350px] lg:h-[100vh]">
         <img
           src="/hamsi.webp"
           alt="Hamsi Creative Fashions"
-          width="100%"
-          height="100vh"
+          className="h-full w-full object-cover object-top"
         />
       </div>
-      <div className="h-[100vh]">
+      <div className="md:h-[100vh] md:overflow-y-auto p-5">
         <Header message={message} />
         <TimerContainer
           days={days}
