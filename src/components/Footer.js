@@ -3,16 +3,28 @@ import React from "react";
 export const Footer = () => {
   return (
     <div className="mx-auto w-full ">
-      <p className="text-lg mb-2 font-serif text-[#1c1c1c] text-center mx-auto">
+      <p className="text-md md:text-lg mb-2 font-serif text-[#1c1c1c]">
+        Welcome to Hamsi, your new go-to destination for chic and stylish
+        women’s fashion!
+      </p>
+      <p className="text-md md:text-lg mb-2 font-serif text-[#1c1c1c]">
         We're counting down the days to the grand launch of Hamsi...!
       </p>
-      <p className="text-lg mb-2 font-serif text-[#1c1c1c] text-center mx-auto">
-        Get ready to discover unique styles and exclusive collections that
-        celebrate your individuality. Stay tuned for updates and sneak peeks,
-        and be the first to shop when we open our doors!
+      <p className="text-md md:text-lg mb-2 font-serif text-[#1c1c1c]">
+        Get ready to elevate your wardrobe with our stunning collection designed
+        for every woman who loves to express her unique style.
       </p>
-      <p className="text-xl mt-12 font-serif text-[#1c1c1c] text-center mx-auto">
-        <strong>Hamsi – Where Your Style Begins!</strong>
+      <h3 className="text-xl md:text-2xl font-bold font-serif text-[#d42d2d] font-bold my-4">
+        ✨ What to Expect:
+      </h3>
+      <ul class="list-disc px-12 text-md md:text-lg mb-2 font-serif">
+        <li>Chic, versatile pieces</li>
+        <li>Exclusive launch day offers</li>
+        <li>A celebration of fashion and femininity</li>
+      </ul>
+      <p className="text-md md:text-lg mb-2 font-serif text-[#1c1c1c]  mx-auto">
+        Follow us for updates and sneak peeks leading up to the big day. We
+        can’t wait to celebrate with you!
       </p>
       <div className="w-full flex mt-10 space-x-6 justify-center items-center ">
         <a href="https://facebook.com/" target="_blank">
@@ -36,6 +48,9 @@ export const Footer = () => {
           </svg>
         </a>
       </div>
+      <p className="text-xl mt-12 font-serif text-[#1c1c1c] text-center mx-auto">
+        <strong>Hamsi – Where Your Style Begins!</strong>
+      </p>
     </div>
   );
 };
