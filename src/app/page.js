@@ -13,9 +13,7 @@ const Home = () => {
   const [seconds, setSeconds] = useState(0);
   const [message, setMessage] = useState("");
 
-  const timeToDays = time * 60 * 60 * 24 * 1000;
-
-  let countDownDate = new Date().getTime() + timeToDays;
+  const countDownDate = new Date("12/31/2024");
   useEffect(() => {
     var updateTime = setInterval(() => {
       var now = new Date().getTime();
@@ -49,7 +47,7 @@ const Home = () => {
     return () => {
       clearInterval(updateTime);
     };
-  }, [time]);
+  }, []);
 
   return (
     <div className="grid h-screen grid-cols-1 lg:grid-cols-2">
