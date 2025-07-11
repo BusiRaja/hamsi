@@ -1,4 +1,3 @@
-// Next.js 15 App Router - app/page.js
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -66,27 +65,47 @@ export default function LaunchingSoon() {
                 </div>
               </div>
 
-              {/* 3D Animated LAUNCHING SOON Text */}
+              {/* Creative 3D Animated LAUNCHING SOON Text */}
               <div className="text-center space-y-4">
                 <div className="overflow-hidden">
-                  <h2 className={`text-4xl sm:text-5xl lg:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 tracking-wide transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 scale-100' : 'translate-y-full scale-50'}`}
+                  <h2 className={`text-4xl sm:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 tracking-wider transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 scale-100' : 'translate-y-full scale-50'}`}
                       style={{
-                        textShadow: '0 4px 8px rgba(236, 72, 153, 0.3), 0 8px 16px rgba(236, 72, 153, 0.2)',
+                        fontFamily: '"Playfair Display", "Times New Roman", serif',
+                        textShadow: '0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.2)',
                         transform: isLoaded ? 'perspective(1000px) rotateX(0deg) rotateY(0deg)' : 'perspective(1000px) rotateX(45deg) rotateY(45deg)',
-                        animation: isLoaded ? 'float3d 6s ease-in-out infinite' : 'none'
+                        animation: isLoaded ? 'float3d 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate' : 'none',
+                        background: 'linear-gradient(45deg, #ec4899, #f43f5e, #f59e0b, #ec4899)',
+                        backgroundSize: '400% 400%',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text'
                       }}>
                     LAUNCHING SOON
                   </h2>
                 </div>
+                
+                {/* Decorative Elements */}
+                <div className="flex justify-center space-x-4 mt-6">
+                  <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+                  <div className="w-2 h-2 bg-rose-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                </div>
               </div>
 
-              {/* Fashion Description */}
+              {/* Brand Story */}
               <div className={`transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-md font-light">
-                  Two sisters. One vision. Infinite possibilities. 
-                  <span className="font-medium text-pink-600"> Prathibha & Bhavana </span>
-                  are crafting a boutique where <em className="text-rose-500">elegance meets accessibility</em>.
-                </p>
+                <div className="space-y-4 text-center max-w-2xl mx-auto">
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
+                    <span className="font-medium text-pink-600">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
+                    <span className="font-medium text-rose-600"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
+                    quality fashion accessible to everyone in their community.
+                  </p>
+                  
+                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
+                    As we prepare for our grand opening, we're committed to supporting <em className="text-pink-500">local artisans</em>,
+                    promoting <em className="text-rose-500">sustainable fashion</em>, and creating a space where every customer feels welcomed,
+                    valued, and beautiful. <span className="font-medium text-amber-600">Every piece in our collection has been chosen with love and care.</span>
+                  </p>
+                </div>
               </div>
 
               {/* Fashion Features */}
@@ -119,7 +138,7 @@ export default function LaunchingSoon() {
                       autoPlay 
                       playsInline
                       onEnded={() => setVideoEnded(true)}
-                      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f3e8ff'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial,sans-serif' font-size='18' fill='%23a855f7' text-anchor='middle' dy='.3em'%3EHamsi Fashion Preview%3C/text%3E%3C/svg%3E"
+                      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8fafc'/%3E%3C/svg%3E"
                     >
                       <source src="https://res.cloudinary.com/hamsi/video/upload/v1752212486/uploads/mukdydbpbylka4ob0zle.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -128,9 +147,24 @@ export default function LaunchingSoon() {
                     <img 
                       src="/launch-soon.png"
                       alt="Launch Soon"
-                      className="w-full h-64 sm:h-72 md:h-80 object-cover"
+                      className="w-full h-64 sm:h-72 md:h-80 object-cover animate-fade-in"
                     />
                   )}
+                  
+                  {/* Fallback when video fails to load */}
+                  <img 
+                    src="/launch-soon.png"
+                    alt="Launch Soon"
+                    className="w-full h-64 sm:h-72 md:h-80 object-cover"
+                    style={{display: 'none'}}
+                    onError={(e) => {
+                      e.target.style.display = 'block';
+                      const video = e.target.previousElementSibling;
+                      if (video && video.tagName === 'VIDEO') {
+                        video.style.display = 'none';
+                      }
+                    }}
+                  />
                   
                   {/* Video Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -184,7 +218,7 @@ export default function LaunchingSoon() {
         </div>
       </div>
 
-      {/* 3D Animation Styles */}
+      {/* Enhanced 3D Animation Styles */}
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes float3d {
@@ -200,6 +234,30 @@ export default function LaunchingSoon() {
             75% { 
               transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateZ(20px);
             }
+          }
+          
+          @keyframes glow {
+            from {
+              text-shadow: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.2);
+            }
+            to {
+              text-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 30px rgba(236, 72, 153, 0.6), 0 0 40px rgba(236, 72, 153, 0.4);
+            }
+          }
+          
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          
+          .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+          }
+          
+          @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
           }
         `
       }} />
