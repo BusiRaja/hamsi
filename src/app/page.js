@@ -1,31 +1,19 @@
- 'use client';
+ 
+'use client';
 
 import { useState, useEffect } from 'react';
 
 export default function LaunchingSoon() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [followClicked, setFollowClicked] = useState(false);
-  const [videoEnded, setVideoEnded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const handleVideoEnd = () => {
-    setVideoEnded(true);
-  };
+  
 
-  const handleVideoError = () => {
-    setVideoError(true);
-  };
-
-  const handleVideoLoad = () => {
-    setVideoLoaded(true);
-  };
-
-   const handleFollowClick = () => {
+  const handleFollowClick = () => {
     setFollowClicked(true);
     window.open('https://instagram.com/hamsi_handloom', '_blank');
   };
@@ -64,130 +52,48 @@ export default function LaunchingSoon() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center h-full">
             
-            {/* Left Side - Content */}
-            <div className={`space-y-4 sm:space-y-6 transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
-              
-              {/* Launch Soon GIF */}
-              <div className="flex justify-center mb-6 md:mb-8">
-                <div className="relative">
-                  <img 
-                    src="/launch-soon.gif" 
-                    alt="Launching Soon"
-                    className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-pink-400 to-rose-400"
-                    style={{
-                      filter: 'drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3))',
-                      animation: isLoaded ? 'pulse-glow 3s ease-in-out infinite' : 'none'
-                    }}
-                  />
-                  <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full animate-ping"></div>
-                </div>
-              </div>
-
-              {/* Brand Story */}
-              <div className={`transform transition-all duration-1000 delay-700 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <div className="space-y-4 text-center max-w-2xl mx-auto">
-                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                    <span className="font-medium text-pink-600">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
-                    <span className="font-medium text-rose-600"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
-                    quality fashion accessible to everyone in their community.
-                  </p>
-                  
-                  <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                    As we prepare for our grand opening, we're committed to supporting <em className="text-pink-500">local artisans</em>,
-                    promoting <em className="text-rose-500">sustainable fashion</em>, and creating a space where every customer feels welcomed,
-                    valued, and beautiful. <span className="font-medium text-amber-600">Every piece in our collection has been chosen with love and care.</span>
-                  </p>
-                </div>
-              </div>
-
-              {/* Fashion Features */}
-              <div className={`space-y-2 sm:space-y-3 transform transition-all duration-1000 delay-900 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-                <div className="flex items-center space-x-3 group">
-                  <div className="w-2 h-2 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                  <span className="text-sm sm:text-base text-gray-700 font-light tracking-wide">Haute Couture Collection</span>
-                </div>
-                <div className="flex items-center space-x-3 group">
-                  <div className="w-2 h-2 bg-gradient-to-r from-rose-400 to-amber-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                  <span className="text-sm sm:text-base text-gray-700 font-light tracking-wide">Sustainable Fashion</span>
-                </div>
-                <div className="flex items-center space-x-3 group">
-                  <div className="w-2 h-2 bg-gradient-to-r from-amber-400 to-pink-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                  <span className="text-sm sm:text-base text-gray-700 font-light tracking-wide">Inclusive Sizing</span>
-                </div>
+            {/* Left Side - Launch Soon GIF Only */}
+            <div className={`flex justify-center items-center h-full transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+              <div className="relative">
+                <img 
+                  src="/launch-soon.gif" 
+                  alt="Launching Soon"
+                  className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-pink-400 to-rose-400"
+                  style={{
+                    filter: 'drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3))',
+                    animation: isLoaded ? 'pulse-glow 3s ease-in-out infinite' : 'none'
+                  }}
+                />
+                <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full animate-ping"></div>
               </div>
             </div>
 
-            {/* Right Side - Video & Social */}
-            <div className={`space-y-4 sm:space-y-6 transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+            {/* Right Side - Brand Story & Social */}
+            <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
               
-              {/* Video Container */}
-              <div className="relative group">
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
-                  {/* Video/Image Element */}
-                  {videoError || (!videoLoaded && videoEnded) ? (
-                    <img 
-                      src="/launch-soon.png"
-                      alt="Launch Soon"
-                      className="w-full h-64 sm:h-72 md:h-80 object-cover animate-fade-in"
-                    />
-                  ) : !videoEnded ? (
-                    <video 
-                      className="w-full h-64 sm:h-72 md:h-80 object-cover"
-                      controls
-                      playsInline
-                      onEnded={handleVideoEnd}
-                      onError={handleVideoError}
-                      onLoadedData={handleVideoLoad}
-                      poster="/launch-soon.png"
-                    >
-                      <source src="https://res.cloudinary.com/hamsi/video/upload/v1752212486/uploads/mukdydbpbylka4ob0zle.mp4" type="video/mp4" />
-                      <source src="https://res.cloudinary.com/hamsi/video/upload/v1752212486/uploads/mukdydbpbylka4ob0zle.webm" type="video/webm" />
-                      Your browser does not support the video tag.
-                    </video>
-                  ) : (
-                    <img 
-                      src="/launch-soon.png"
-                      alt="Launch Soon"
-                      className="w-full h-64 sm:h-72 md:h-80 object-cover animate-fade-in"
-                    />
-                  )}
-                  
-                  {/* Manual Play Button Overlay */}
-                  {!videoLoaded && !videoError && !videoEnded && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
-                      <button 
-                        onClick={() => {
-                          const video = document.querySelector('video');
-                          if (video) {
-                            video.play().catch(() => setVideoError(true));
-                          }
-                        }}
-                        className="bg-white bg-opacity-90 rounded-full p-4 hover:bg-opacity-100 transition-all duration-300 transform hover:scale-110"
-                      >
-                        <svg className="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M8 5v14l11-7z"/>
-                        </svg>
-                      </button>
-                    </div>
-                  )}
-                  
-                  {/* Video Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <p className="text-sm font-medium">Fashion Preview</p>
-                      <p className="text-xs opacity-80">Coming Soon</p>
-                    </div>
+              {/* Brand Story */}
+              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 border border-pink-100">
+                <div className="space-y-6">
+                  <div className="text-center">
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
+                      Our Story
+                    </h3>
                   </div>
                   
-                  {/* Decorative Corner */}
-                  <div className="absolute top-4 right-4">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 bg-white bg-opacity-20 rounded-full animate-pulse backdrop-blur-sm"></div>
+                  <div className="space-y-4">
+                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
+                      <span className="font-medium text-pink-600">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
+                      <span className="font-medium text-rose-600"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
+                      quality fashion accessible to everyone in their community.
+                    </p>
+                    
+                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
+                      As we prepare for our grand opening, we're committed to supporting <em className="text-pink-500">local artisans</em>,
+                      promoting <em className="text-rose-500">sustainable fashion</em>, and creating a space where every customer feels welcomed,
+                      valued, and beautiful. <span className="font-medium text-amber-600">Every piece in our collection has been chosen with love and care.</span>
+                    </p>
                   </div>
                 </div>
-                
-                {/* Floating Elements Around Video */}
-                <div className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 w-4 h-4 sm:w-6 sm:h-6 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full animate-bounce"></div>
-                <div className="absolute -bottom-2 -left-2 sm:-bottom-3 sm:-left-3 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-br from-amber-400 to-pink-400 rounded-full animate-pulse"></div>
               </div>
 
               {/* Instagram Section */}
@@ -226,34 +132,15 @@ export default function LaunchingSoon() {
       {/* Enhanced 3D Animation Styles */}
       <style dangerouslySetInnerHTML={{
         __html: `
-          @keyframes float3d {
+          @keyframes pulse-glow {
             0%, 100% { 
-              transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
-            }
-            25% { 
-              transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(20px);
+              filter: drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3));
+              transform: scale(1);
             }
             50% { 
-              transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px);
+              filter: drop-shadow(0 25px 50px rgba(236, 72, 153, 0.5));
+              transform: scale(1.02);
             }
-            75% { 
-              transform: perspective(1000px) rotateX(-5deg) rotateY(5deg) translateZ(20px);
-            }
-          }
-          
-          @keyframes glow {
-            from {
-              text-shadow: 0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.2);
-            }
-            to {
-              text-shadow: 0 0 20px rgba(236, 72, 153, 0.8), 0 0 30px rgba(236, 72, 153, 0.6), 0 0 40px rgba(236, 72, 153, 0.4);
-            }
-          }
-          
-          @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
           }
           
           .animate-fade-in {
