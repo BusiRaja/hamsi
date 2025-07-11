@@ -1,4 +1,3 @@
- 
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -17,7 +16,7 @@ export default function LaunchingSoon() {
   };
 
   return (
-    <div className="h-screen overflow-auto bg-gradient-to-br from-black via-gray-900 to-black relative">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black relative overflow-x-hidden">
       
       {/* Animated Gold Elements Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -51,29 +50,29 @@ export default function LaunchingSoon() {
       </div>
 
       {/* Main Container */}
-      <div className="h-full flex items-center relative z-10">
+      <div className="relative z-10 py-8 sm:py-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center h-full">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen lg:min-h-0">
             
-            {/* Left Side - Launch Soon GIF Only */}
-            <div className={`flex justify-center items-center h-full transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
-              <div className="relative">
+            {/* Left Side - Launch Soon GIF */}
+            <div className={`flex justify-center items-center order-1 lg:order-1 w-full transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
+              <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg">
                 <img 
                   src="/launch-soon.gif" 
                   alt="Launching Soon"
-                  className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-yellow-400 to-amber-500"
+                  className="w-full h-auto aspect-square object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-yellow-400 to-amber-500"
                   style={{
                     filter: 'drop-shadow(0 20px 40px rgba(251, 191, 36, 0.4))',
                     animation: isLoaded ? 'pulse-gold 3s ease-in-out infinite' : 'none',
                     boxShadow: '0 0 50px rgba(251, 191, 36, 0.3), inset 0 0 50px rgba(251, 191, 36, 0.1)'
                   }}
                 />
-                <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full animate-ping"></div>
+                <div className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full animate-ping"></div>
               </div>
             </div>
 
             {/* Right Side - Brand Story & Social */}
-            <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
+            <div className={`space-y-6 sm:space-y-8 order-2 lg:order-2 w-full transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
               
               {/* Brand Story */}
               <div className="bg-black/80 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 border border-yellow-400/30 relative overflow-hidden">
@@ -93,9 +92,8 @@ export default function LaunchingSoon() {
                   
                   <div className="space-y-4">
                     <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
-                      <span className="font-medium text-yellow-400">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
-                      <span className="font-medium text-amber-300"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
-                      quality fashion accessible to everyone in their community.
+                      <span className="font-medium text-yellow-400">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream
+                      to create a boutique that would make beautiful, quality fashion accessible to everyone in their community.
                     </p>
                     
                     <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
