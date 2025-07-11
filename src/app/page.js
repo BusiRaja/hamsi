@@ -242,7 +242,7 @@ export default function LaunchingSoon() {
       </div>
 
       {/* Custom CSS for additional animations */}
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-20px); }
