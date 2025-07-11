@@ -11,40 +11,43 @@ export default function LaunchingSoon() {
     setIsLoaded(true);
   }, []);
 
-  
-
-  const handleFollowClick = () => {
+ const handleFollowClick = () => {
     setFollowClicked(true);
     window.open('https://instagram.com/hamsi_handloom', '_blank');
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-rose-50 via-pink-25 to-amber-50 relative">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black relative">
       
-      {/* Animated Fashion Elements Background */}
+      {/* Animated Gold Elements Background */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Floating Fashion Icons */}
-        <div className="absolute top-10 sm:top-20 left-8 sm:left-16 opacity-10">
+        {/* Floating Gold Icons */}
+        <div className="absolute top-10 sm:top-20 left-8 sm:left-16 opacity-20">
           <div className="animate-bounce" style={{animationDuration: '3s'}}>
-            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-pink-400" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 sm:w-8 sm:h-8 text-yellow-400" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
             </svg>
           </div>
         </div>
-        <div className="absolute top-32 sm:top-40 right-12 sm:right-20 opacity-10 animate-bounce" style={{animationDuration: '4s'}}>
-          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-rose-400" fill="currentColor" viewBox="0 0 24 24">
+        <div className="absolute top-32 sm:top-40 right-12 sm:right-20 opacity-20 animate-bounce" style={{animationDuration: '4s'}}>
+          <svg className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
           </svg>
         </div>
-        <div className="absolute bottom-24 sm:bottom-32 left-12 sm:left-24 opacity-10 animate-pulse">
-          <svg className="w-8 h-8 sm:w-10 sm:h-10 text-pink-300" fill="currentColor" viewBox="0 0 24 24">
+        <div className="absolute bottom-24 sm:bottom-32 left-12 sm:left-24 opacity-20 animate-pulse">
+          <svg className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-300" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
         </div>
         
-        {/* Gradient Orbs */}
-        <div className="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-br from-pink-200 to-rose-200 rounded-full opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 bg-gradient-to-br from-amber-200 to-pink-200 rounded-full opacity-25 animate-bounce" style={{animationDuration: '6s'}}></div>
+        {/* Gold Gradient Orbs */}
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/4 left-1/3 w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-full opacity-15 animate-bounce" style={{animationDuration: '6s'}}></div>
+        
+        {/* Shiny Gold Particles */}
+        <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-30"></div>
+        <div className="absolute top-2/3 right-1/3 w-1 h-1 bg-amber-400 rounded-full animate-ping opacity-40" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/3 left-2/3 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-ping opacity-35" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Main Container */}
@@ -58,13 +61,14 @@ export default function LaunchingSoon() {
                 <img 
                   src="/launch-soon.gif" 
                   alt="Launching Soon"
-                  className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-pink-400 to-rose-400"
+                  className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-yellow-400 to-amber-500"
                   style={{
-                    filter: 'drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3))',
-                    animation: isLoaded ? 'pulse-glow 3s ease-in-out infinite' : 'none'
+                    filter: 'drop-shadow(0 20px 40px rgba(251, 191, 36, 0.4))',
+                    animation: isLoaded ? 'pulse-gold 3s ease-in-out infinite' : 'none',
+                    boxShadow: '0 0 50px rgba(251, 191, 36, 0.3), inset 0 0 50px rgba(251, 191, 36, 0.1)'
                   }}
                 />
-                <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full animate-ping"></div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full animate-ping"></div>
               </div>
             </div>
 
@@ -72,25 +76,32 @@ export default function LaunchingSoon() {
             <div className={`space-y-6 sm:space-y-8 transform transition-all duration-1000 delay-500 ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}`}>
               
               {/* Brand Story */}
-              <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-6 sm:p-8 border border-pink-100">
-                <div className="space-y-6">
+              <div className="bg-black/80 backdrop-blur-sm rounded-2xl shadow-2xl p-6 sm:p-8 border border-yellow-400/30 relative overflow-hidden">
+                {/* Gold shine overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent transform -skew-x-12 translate-x-full animate-shine"></div>
+                
+                <div className="relative z-10 space-y-6">
                   <div className="text-center">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4 bg-gradient-to-r from-pink-600 to-rose-500 bg-clip-text text-transparent">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-4 bg-gradient-to-r from-yellow-400 via-amber-300 to-yellow-500 bg-clip-text text-transparent"
+                        style={{
+                          textShadow: '0 0 20px rgba(251, 191, 36, 0.5)',
+                          animation: 'shimmer 2s ease-in-out infinite alternate'
+                        }}>
                       Our Story
                     </h3>
                   </div>
                   
                   <div className="space-y-4">
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                      <span className="font-medium text-pink-600">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
-                      <span className="font-medium text-rose-600"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
+                    <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
+                      <span className="font-medium text-yellow-400">Hamsi Boutique</span> is the beautiful manifestation of two sisters' shared dream.
+                      <span className="font-medium text-amber-300"> Prathibha and Bhavana Kamreddy</span> envisioned creating a boutique that would make beautiful,
                       quality fashion accessible to everyone in their community.
                     </p>
                     
-                    <p className="text-base sm:text-lg text-gray-700 leading-relaxed font-light">
-                      As we prepare for our grand opening, we're committed to supporting <em className="text-pink-500">local artisans</em>,
-                      promoting <em className="text-rose-500">sustainable fashion</em>, and creating a space where every customer feels welcomed,
-                      valued, and beautiful. <span className="font-medium text-amber-600">Every piece in our collection has been chosen with love and care.</span>
+                    <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
+                      As we prepare for our grand opening, we're committed to supporting <em className="text-yellow-400">local artisans</em>,
+                      promoting <em className="text-amber-400">sustainable fashion</em>, and creating a space where every customer feels welcomed,
+                      valued, and beautiful. <span className="font-medium text-yellow-300">Every piece in our collection has been chosen with love and care.</span>
                     </p>
                   </div>
                 </div>
@@ -129,18 +140,51 @@ export default function LaunchingSoon() {
         </div>
       </div>
 
-      {/* Enhanced 3D Animation Styles */}
+      {/* Enhanced Black & Gold Animation Styles */}
       <style dangerouslySetInnerHTML={{
         __html: `
-          @keyframes pulse-glow {
+          @keyframes pulse-gold {
             0%, 100% { 
-              filter: drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3));
+              filter: drop-shadow(0 20px 40px rgba(251, 191, 36, 0.4));
               transform: scale(1);
+              box-shadow: 0 0 50px rgba(251, 191, 36, 0.3), inset 0 0 50px rgba(251, 191, 36, 0.1);
             }
             50% { 
-              filter: drop-shadow(0 25px 50px rgba(236, 72, 153, 0.5));
+              filter: drop-shadow(0 25px 50px rgba(251, 191, 36, 0.6));
               transform: scale(1.02);
+              box-shadow: 0 0 70px rgba(251, 191, 36, 0.5), inset 0 0 70px rgba(251, 191, 36, 0.2);
             }
+          }
+          
+          @keyframes shimmer {
+            0% { 
+              text-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
+            }
+            100% { 
+              text-shadow: 0 0 30px rgba(251, 191, 36, 0.8), 0 0 40px rgba(251, 191, 36, 0.6);
+            }
+          }
+          
+          @keyframes shine {
+            0% { 
+              transform: translateX(-100%) skewX(-12deg);
+            }
+            100% { 
+              transform: translateX(300%) skewX(-12deg);
+            }
+          }
+          
+          @keyframes glow-pulse {
+            0% { 
+              box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+            }
+            100% { 
+              box-shadow: 0 0 50px rgba(251, 191, 36, 0.8), 0 0 70px rgba(251, 191, 36, 0.4);
+            }
+          }
+          
+          .animate-shine {
+            animation: shine 3s ease-in-out infinite;
           }
           
           .animate-fade-in {
