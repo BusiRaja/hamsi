@@ -17,7 +17,7 @@ export default function LaunchingSoon() {
   };
 
   return (
-    <div className="h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black relative">
+    <div className="h-screen overflow-auto bg-gradient-to-br from-black via-gray-900 to-black relative">
       
       {/* Animated Gold Elements Background */}
       <div className="absolute inset-0 pointer-events-none">
