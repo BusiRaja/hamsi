@@ -242,15 +242,17 @@ export default function LaunchingSoon() {
       </div>
 
       {/* Custom CSS for additional animations */}
-      <style jsx global>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
-        }
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+          }
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+        `
+      }} />
     </div>
   );
 }
