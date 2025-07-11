@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import { useState, useEffect } from 'react';
 
@@ -6,12 +6,26 @@ export default function LaunchingSoon() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [followClicked, setFollowClicked] = useState(false);
   const [videoEnded, setVideoEnded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
-  const handleFollowClick = () => {
+  const handleVideoEnd = () => {
+    setVideoEnded(true);
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+  };
+
+  const handleVideoLoad = () => {
+    setVideoLoaded(true);
+  };
+
+   const handleFollowClick = () => {
     setFollowClicked(true);
     window.open('https://instagram.com/hamsi_handloom', '_blank');
   };
@@ -53,41 +67,19 @@ export default function LaunchingSoon() {
             {/* Left Side - Content */}
             <div className={`space-y-4 sm:space-y-6 transform transition-all duration-1000 ${isLoaded ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'}`}>
               
-              {/* Logo */}
+              {/* Launch Soon GIF */}
               <div className="flex justify-center mb-6 md:mb-8">
                 <div className="relative">
                   <img 
-                    src="/home-logo.png" 
-                    alt="Hamsi Fashion Boutique Logo"
-                    className="w-16 h-16 md:w-20 md:h-20 object-contain rounded-full shadow-2xl"
+                    src="/launch-soon.gif" 
+                    alt="Launching Soon"
+                    className="w-80 h-80 md:w-96 md:h-96 max-w-[400px] max-h-[400px] object-cover rounded-full shadow-2xl border-4 border-gradient-to-r from-pink-400 to-rose-400"
+                    style={{
+                      filter: 'drop-shadow(0 20px 40px rgba(236, 72, 153, 0.3))',
+                      animation: isLoaded ? 'pulse-glow 3s ease-in-out infinite' : 'none'
+                    }}
                   />
-                  <div className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-pink-300 rounded-full animate-ping"></div>
-                </div>
-              </div>
-
-              {/* Creative 3D Animated LAUNCHING SOON Text */}
-              <div className="text-center space-y-4">
-                <div className="overflow-hidden">
-                  <h2 className={`text-4xl sm:text-5xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-500 to-amber-500 tracking-wider transform transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 scale-100' : 'translate-y-full scale-50'}`}
-                      style={{
-                        fontFamily: '"Playfair Display", "Times New Roman", serif',
-                        textShadow: '0 0 10px rgba(236, 72, 153, 0.5), 0 0 20px rgba(236, 72, 153, 0.3), 0 0 30px rgba(236, 72, 153, 0.2)',
-                        transform: isLoaded ? 'perspective(1000px) rotateX(0deg) rotateY(0deg)' : 'perspective(1000px) rotateX(45deg) rotateY(45deg)',
-                        animation: isLoaded ? 'float3d 6s ease-in-out infinite, glow 3s ease-in-out infinite alternate' : 'none',
-                        background: 'linear-gradient(45deg, #ec4899, #f43f5e, #f59e0b, #ec4899)',
-                        backgroundSize: '400% 400%',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text'
-                      }}>
-                    LAUNCHING SOON
-                  </h2>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="flex justify-center space-x-4 mt-6">
-                  <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
-                  <div className="w-2 h-2 bg-rose-400 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
-                  <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-pink-400 to-rose-400 rounded-full animate-ping"></div>
                 </div>
               </div>
 
@@ -132,15 +124,24 @@ export default function LaunchingSoon() {
               <div className="relative group">
                 <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl">
                   {/* Video/Image Element */}
-                  {!videoEnded ? (
+                  {videoError || (!videoLoaded && videoEnded) ? (
+                    <img 
+                      src="/launch-soon.png"
+                      alt="Launch Soon"
+                      className="w-full h-64 sm:h-72 md:h-80 object-cover animate-fade-in"
+                    />
+                  ) : !videoEnded ? (
                     <video 
                       className="w-full h-64 sm:h-72 md:h-80 object-cover"
-                      autoPlay 
+                      controls
                       playsInline
-                      onEnded={() => setVideoEnded(true)}
-                      poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%23f8fafc'/%3E%3C/svg%3E"
+                      onEnded={handleVideoEnd}
+                      onError={handleVideoError}
+                      onLoadedData={handleVideoLoad}
+                      poster="/launch-soon.png"
                     >
                       <source src="https://res.cloudinary.com/hamsi/video/upload/v1752212486/uploads/mukdydbpbylka4ob0zle.mp4" type="video/mp4" />
+                      <source src="https://res.cloudinary.com/hamsi/video/upload/v1752212486/uploads/mukdydbpbylka4ob0zle.webm" type="video/webm" />
                       Your browser does not support the video tag.
                     </video>
                   ) : (
@@ -151,20 +152,24 @@ export default function LaunchingSoon() {
                     />
                   )}
                   
-                  {/* Fallback when video fails to load */}
-                  <img 
-                    src="/launch-soon.png"
-                    alt="Launch Soon"
-                    className="w-full h-64 sm:h-72 md:h-80 object-cover"
-                    style={{display: 'none'}}
-                    onError={(e) => {
-                      e.target.style.display = 'block';
-                      const video = e.target.previousElementSibling;
-                      if (video && video.tagName === 'VIDEO') {
-                        video.style.display = 'none';
-                      }
-                    }}
-                  />
+                  {/* Manual Play Button Overlay */}
+                  {!videoLoaded && !videoError && !videoEnded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20">
+                      <button 
+                        onClick={() => {
+                          const video = document.querySelector('video');
+                          if (video) {
+                            video.play().catch(() => setVideoError(true));
+                          }
+                        }}
+                        className="bg-white bg-opacity-90 rounded-full p-4 hover:bg-opacity-100 transition-all duration-300 transform hover:scale-110"
+                      >
+                        <svg className="w-8 h-8 text-pink-600" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </button>
+                    </div>
+                  )}
                   
                   {/* Video Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
