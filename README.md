@@ -1,7 +1,9 @@
-🚀 Something Exciting is Coming! 🚀
+# House of Hamsi — Coming Soon (Next.js 16 + Tailwind v4)
 
-We're counting down the days to the grand launch of Hamsi...!
+    npm install
+    cp .env.example .env.local   # launch date, WhatsApp number, social links
+    npm run dev
 
-Get ready to discover unique styles and exclusive collections that celebrate your individuality. Stay tuned for updates and sneak peeks, and be the first to shop when we open our doors!
-
-Hamsi – Where Your Style Begins!
+- Video: add `public/videos/embroidery.mp4` (poster shows until then).
+- Email signups: wire `app/api/notify/route.js` to your mailing list / DB.
+- Brand colors live in `app/globals.css` under `@theme`.

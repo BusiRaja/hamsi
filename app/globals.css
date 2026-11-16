@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wine: #4a0a1a;
+  --color-wine-deep: #2a0510;
+  --color-maroon: #7a1230;
+  --color-gold: #d9a94f;
+  --color-gold-light: #f4d78b;
+  --color-cream: #fbf1e1;
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-script: var(--font-vibes), cursive;
+  --font-body: var(--font-jost), system-ui, sans-serif;
+}
+
+body { background: var(--color-wine-deep); }
+
+.gold-text {
+  background: linear-gradient(180deg, #fff3c4 0%, #e9bd62 45%, #b8812c 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 0 18px rgba(244, 215, 139, .45));
+}
+.gold-border { border: 1px solid rgba(217,169,79,.75); box-shadow: 0 0 24px rgba(217,169,79,.15) inset; }
+.gold-btn {
+  background: linear-gradient(180deg, #f6dc92, #d9a94f 60%, #b8812c);
+  color: #3b0814; font-weight: 600; transition: filter .3s, transform .3s, box-shadow .3s;
+  box-shadow: 0 6px 24px rgba(217,169,79,.35);
+}
+.gold-btn:hover { filter: brightness(1.08); transform: translateY(-1px); box-shadow: 0 8px 32px rgba(244,215,139,.55); }
+.glass { background: rgba(60, 8, 22, .45); backdrop-filter: blur(8px); }
+
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.rise { opacity: 0; animation: rise 1s cubic-bezier(.2,.7,.2,1) forwards; }
+@keyframes shimmer { 0%,100% { filter: drop-shadow(0 0 10px rgba(244,215,139,.35)); } 50% { filter: drop-shadow(0 0 26px rgba(244,215,139,.9)); } }
+.shimmer { animation: shimmer 4s ease-in-out infinite; }
+@keyframes kenburns { from { transform: scale(1); } to { transform: scale(1.07); } }
+.kenburns { animation: kenburns 24s ease-in-out infinite alternate; }
+
+/* Butterfly: wings flap while the body drifts along a gentle path */
+@keyframes flap { 0%,100% { transform: scaleX(1); } 50% { transform: scaleX(.35); } }
+@keyframes drift {
+  0% { transform: translate(0,0) rotate(8deg); }
+  33% { transform: translate(-36px,-26px) rotate(-6deg); }
+  66% { transform: translate(18px,-48px) rotate(10deg); }
+  100% { transform: translate(0,0) rotate(8deg); }
+}
+.butterfly { animation: drift 14s ease-in-out infinite; }
+.wing { transform-box: fill-box; transform-origin: right center; animation: flap .9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .rise { animation: none; opacity: 1; }
+  .shimmer, .kenburns, .butterfly, .wing { animation: none; }
+}
